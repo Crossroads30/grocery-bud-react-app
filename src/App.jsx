@@ -27,16 +27,17 @@ function App() {
 		<section className='section-center'>
 			<form className='grocery-form' onSubmit={handleSubmit}>
 				{alert.show && <Alert />}
-				<h3>grocery bud</h3>
+				<h3>список продуктов</h3>
 				<div className='form-control'>
 					<input
+          placeholder='Добавьте продукты'
 						type='text'
 						className='grocery'
 						value={name}
 						onChange={e => setName(e.target.value)}
 					/>
 					<button className='submit-btn' type='submit'>
-						{isEditing ? 'edit' : 'submit'}
+						{isEditing ? 'исправить' : 'добавить'}
 					</button>
 				</div>
 			</form>
@@ -48,7 +49,7 @@ function App() {
 						type='button'
 						className='clear-btn'
 					>
-						clear items
+						очистить список
 					</button>
 				</div>
 			)}
