@@ -17,21 +17,26 @@ function App() {
 		e.preventDefault()
 		if (!name) {
 			// show alert
-      showAlert(true, 'Пожалуйста добавьте продукт', 'danger')
+			showAlert(true, 'Пожалуйста добавьте продукт', 'danger')
 		} else if (name && isEditing) {
 			// deal with edit
 		} else {
+			showAlert(true, 'Продукт добавлен!', 'success')
 			const newItem = { id: new Date().getTime().toString(), title: name }
 			setList([...list, newItem])
-      setAlert(false)
 		}
 		setName('')
 	}
 	// console.log(list)
 
-  const showAlert = (show=false, msg='', type='') => {
-    setAlert({show,msg,type})//(ES6 feature) if value is equal to param we just can skip this construction: 'show: show, msg: msg, type: type', and pass only one word
-  }
+	const showAlert = (show = false, msg = '', type = '') => {
+		setAlert({ show, msg, type }) //(ES6 feature) if value is equal to param we just can skip this construction: 'show: show, msg: msg, type: type', and pass only one word
+	}
+
+	const removeItem = id => {
+		const newList = list.filter(item => item.id !== id)
+		setList(newList)
+	}
 
 	return (
 		<section className='section-center'>
@@ -53,7 +58,7 @@ function App() {
 			</form>
 			{list.length > 0 && (
 				<div className='grocery-container'>
-					<List list={list} />
+					<List list={list} removeItem={removeItem} />
 					<button
 						onClick={() => setList([])}
 						type='button'
