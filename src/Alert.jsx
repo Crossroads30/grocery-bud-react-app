@@ -1,21 +1,16 @@
 import React, { useEffect } from 'react'
 
-const Alert = ({list}) => {
+const Alert = ({msg, type}) => {
 
   	// useEffect(() => {
 		// 	setAlert(true)
 		// }, [list])
 
   return (
-    <div className="alert">
-      <div className="alert-danger">
-        fgffgf
-      </div>
-      <div className="alert-success">
-        fgffgf
-      </div>
-    </div>
-)
+				<p className={`alert alert-${type}`}>{msg}</p>
+
+
+	)
 }
 
 export default Alert
