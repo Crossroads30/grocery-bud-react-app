@@ -1,7 +1,21 @@
 import React, { useEffect } from 'react'
 
-const Alert = () => {
-  return <h2>alert component</h2>
+const Alert = ({list}) => {
+
+  	// useEffect(() => {
+		// 	setAlert(true)
+		// }, [list])
+
+  return (
+    <div className="alert">
+      <div className="alert-danger">
+        fgffgf
+      </div>
+      <div className="alert-success">
+        fgffgf
+      </div>
+    </div>
+)
 }
 
 export default Alert
