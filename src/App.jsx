@@ -17,11 +17,11 @@ function App() {
 		e.preventDefault()
 		if (!name) {
 			// show alert
-			showAlert(true, 'Пожалуйста добавьте продукт', 'danger')
+			showAlert(true, 'пожалуйста добавьте продукт', 'danger')
 		} else if (name && isEditing) {
 			// deal with edit
 		} else {
-			showAlert(true, 'Продукт добавлен!', 'success')
+			showAlert(true, 'продукт добавлен!', 'success')
 			const newItem = { id: new Date().getTime().toString(), title: name }
 			setList([...list, newItem])
 		}
@@ -34,12 +34,13 @@ function App() {
 	}
 
   const clearList = () => {
-    showAlert(true, 'Список очищен!', 'danger')
+    showAlert(true, 'список очищен!', 'danger')
     setList([])
   }
 
 	const removeItem = id => {
 		const newList = list.filter(item => item.id !== id)
+    showAlert(true, 'продукт удален!', 'danger')
 		setList(newList)
 	}
 
