@@ -41,6 +41,7 @@ function App() {
 	const removeItem = id => {
 		const newList = list.filter(item => item.id !== id)
     showAlert(true, 'продукт удален!', 'danger')
+		// setList(list.filter(item => item.id !== id))
 		setList(newList)
 	}
 
