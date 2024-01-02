@@ -96,6 +96,41 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-5);
 }
+
+@media screen and (min-width: 375px) {
+h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: .7rem;
+  }
+  body {
+    font-size: .5rem;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: .6;
+  }
+}
+.btn {
+  padding: 0.1rem 0.5rem;
+  font-size: 0.5rem;
+}
+.section-center {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: 35rem;
+  margin-top: 8rem;
+}
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 4rem;
