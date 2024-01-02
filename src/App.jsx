@@ -17,20 +17,26 @@ function App() {
 		e.preventDefault()
 		if (!name) {
 			// show alert
+      showAlert(true, 'Пожалуйста добавьте продукт', 'danger')
 		} else if (name && isEditing) {
 			// deal with edit
 		} else {
 			const newItem = { id: new Date().getTime().toString(), title: name }
 			setList([...list, newItem])
+      setAlert(false)
 		}
 		setName('')
 	}
-	console.log(list)
+	// console.log(list)
+
+  const showAlert = (show=false, msg='', type='') => {
+    setAlert({show,msg,type})//(ES6 feature) if value is equal to param we just can skip this construction: 'show: show, msg: msg, type: type', and pass only one word
+  }
 
 	return (
 		<section className='section-center'>
 			<form className='grocery-form' onSubmit={handleSubmit}>
-				{alert.show && <Alert {...alert} />}
+				{alert.show && <Alert {...alert} removeAlert={showAlert} />}
 				<h3>список продуктов</h3>
 				<div className='form-control'>
 					<input
