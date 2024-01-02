@@ -20,6 +20,18 @@ function App() {
 			showAlert(true, 'пожалуйста добавьте продукт', 'danger')
 		} else if (name && isEditing) {
 			// deal with edit
+			setList(
+        list.map(item => {
+          if (item.id === editId) {
+            return { ...item, title: name }
+					}
+					return item
+				})
+        )
+      setName('')
+      setEditId(null)
+			setIsEditing(false)
+      showAlert(true, 'исправлено!', 'success')
 		} else {
 			showAlert(true, 'продукт добавлен!', 'success')
 			const newItem = { id: new Date().getTime().toString(), title: name }
@@ -33,16 +45,23 @@ function App() {
 		setAlert({ show, msg, type }) //(ES6 feature) if value is equal to param we just can skip this construction: 'show: show, msg: msg, type: type', and pass only one word
 	}
 
-  const clearList = () => {
-    showAlert(true, 'список очищен!', 'danger')
-    setList([])
-  }
+	const clearList = () => {
+		showAlert(true, 'список очищен!', 'danger')
+		setList([])
+	}
 
 	const removeItem = id => {
 		const newList = list.filter(item => item.id !== id)
-    showAlert(true, 'продукт удален!', 'danger')
+		showAlert(true, 'продукт удален!', 'danger')
 		// setList(list.filter(item => item.id !== id))
 		setList(newList)
+	}
+
+	const editItem = id => {
+		const editingItem = list.find(item => item.id === id)
+		setIsEditing(true)
+		setEditId(id)
+		setName(editingItem.title)
 	}
 
 	return (
@@ -65,7 +84,7 @@ function App() {
 			</form>
 			{list.length > 0 && (
 				<div className='grocery-container'>
-					<List list={list} removeItem={removeItem} />
+					<List list={list} removeItem={removeItem} editItem={editItem} />
 					<button onClick={clearList} type='button' className='clear-btn'>
 						очистить список
 					</button>
