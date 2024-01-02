@@ -33,6 +33,11 @@ function App() {
 		setAlert({ show, msg, type }) //(ES6 feature) if value is equal to param we just can skip this construction: 'show: show, msg: msg, type: type', and pass only one word
 	}
 
+  const clearList = () => {
+    showAlert(true, 'Список очищен!', 'danger')
+    setList([])
+  }
+
 	const removeItem = id => {
 		const newList = list.filter(item => item.id !== id)
 		setList(newList)
@@ -59,11 +64,7 @@ function App() {
 			{list.length > 0 && (
 				<div className='grocery-container'>
 					<List list={list} removeItem={removeItem} />
-					<button
-						onClick={() => setList([])}
-						type='button'
-						className='clear-btn'
-					>
+					<button onClick={clearList} type='button' className='clear-btn'>
 						очистить список
 					</button>
 				</div>
