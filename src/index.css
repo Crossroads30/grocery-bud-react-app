@@ -227,6 +227,7 @@ Grocery List
 	border-radius: var(--radius);
 	text-transform: capitalize;
 }
+
 .grocery-item:hover {
 	color: var(--clr-grey-5);
 	background: var(--clr-grey-10);
@@ -240,8 +241,12 @@ Grocery List
 	letter-spacing: 2px;
 	transition: var(--transition);
 }
+.title.complete {
+	text-decoration: line-through;
+}
 .edit-btn,
-.delete-btn {
+.delete-btn,
+.mark-btn {
 	background: transparent;
 	border-color: transparent;
 	cursor: pointer;
@@ -279,6 +284,9 @@ Grocery List
 }
 .clear-btn:hover {
 	color: var(--clr-red-dark);
+}
+.title-container {
+	display: flex;
 }
 
 @media screen and (max-width: 470px) {
