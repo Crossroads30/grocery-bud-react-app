@@ -145,6 +145,7 @@ Grocery List
 	box-shadow: var(--light-shadow);
 	transition: var(--transition);
 	padding: 2rem;
+	
 }
 .section-center:hover {
 	box-shadow: var(--dark-shadow);
@@ -312,7 +313,9 @@ Grocery List
 	.section-center {
 		margin-top: 0rem;
 		width: 100vw;
-		height: 100vh;
+		height: 100%;
+		min-height: 100vh;
+		border: 8px solid var(--clr-primary-8);
 	}
 	p {
 		font-size: 0.9rem;
